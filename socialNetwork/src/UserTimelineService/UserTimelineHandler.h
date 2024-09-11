@@ -301,7 +301,7 @@ void UserTimelineHandler::ReadUserTimeline(
   }
 
   std::future<std::vector<Post>> post_future =
-      std::async(std::launch::async, [&]() {
+      std::async([&]() {
         auto post_client_wrapper = _post_client_pool->Pop();
         if (!post_client_wrapper) {
           ServiceException se;
